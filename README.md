@@ -9,7 +9,7 @@ This is an application that will generate a README file that inputs content base
  The Javascript file is located in the Develop folder. Inquire NPM is installed as well as the node.js file system module. 
 
 ## Usage
-In the command line, the user will input 'node index.js'. The user will then be prompted with various questions to fill in content for the markdown file that the user is creating. The prompts are made up of input questions, as well as a checkbox for the user to choose the license they'd like to use. Once the user answers all the prompts, the markdown file will be generated with the answers to the prompts, and a badge for the license will appear at the top of the file next to the title. 
+In the command line, the user will input 'node index.js'. The user will then be prompted with various questions to fill in content for the markdown file that the user is creating. The prompts are made up of input questions, as well as a checkbox for the user to choose the license they'd like to use. Once the user answers all the prompts, the markdown file will be generated in the directory named "output" with the answers to the prompts, and a badge for the license will appear at the top of the file next to the title. 
 
 Follow the link for a video demonstration of the application being used: 
 

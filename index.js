@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 
-// array using index and some type of for loop is needed to go through these or a known index options[i]
+// create two arrays for all the license options and the corresponding badge links.
 let options = [
     'Apache License 2.0',
     'GNU General Public License v3.0', 
@@ -35,26 +35,6 @@ let badgeLinks = [
 '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)'
 ];
 
-
-
-// for (let i=0; i < license.length; i++) {
-//     for (let j=0; j < )
-// }
-
-// for each license using i
-//     badgeIndex = options[license[i]]
-//     show badge
-// answers={}
-// for loop through questions
-// userin
-
-// answers[] = pass user input now here
-
-
-// theasaurus = {
-//     'apple': "a red fruit",
-//     'ass': "a behind of a human. can also be a douche. can also be a donkey."
-// }
 //Create an array of questions for user input
 const questions = [
     {
@@ -88,10 +68,11 @@ const questions = [
         message: 'What are the test instructions?',
     },
     {
-        type: 'checkbox',
+        type: 'list',
         name: 'license',
         message: 'Please select a license for your project.',
-        choices: options
+        choices: options,
+        default: options[0]
     },
     {
         type: 'input',
@@ -105,8 +86,6 @@ const questions = [
     }
 ];
 
-
-
 //Create a function to write README file
 const generateMarkdown = ({title, description, installation, usage, contribution, test, license, username, email, badges}) =>
 `# ${title} ${badges}
@@ -115,13 +94,12 @@ const generateMarkdown = ({title, description, installation, usage, contribution
 ${description}
 
 ## Table of Contents
-1. Installation
-2. Usage
-3. License
-4. Contributing
-5. Tests
-6. Questions
-
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Installation
 ${installation}
@@ -144,25 +122,23 @@ Github: github.com/${username}
 Email: ${email}
 `
 
-
 inquirer
     .prompt(questions)
     .then((answers) => {
         console.log(answers)
         answers['badges'] = renderLicenseBadge(answers.license);
         const readmeContent = generateMarkdown(answers);
-        fs.writeFile('readme.md', readmeContent, (err) =>
+        fs.writeFile('./output/README.md', readmeContent, (err) =>
         err ? console.error(err) : console.log('ReadMe successfully generated!'));
     });
 
+//renders license badge by looping through the licenses and badges    
 function renderLicenseBadge(license) {
     console.log(license);
-    for (let i=0; i < license.length; i++) {
-        for (let j=0; j < options.length; j++) {
-            if (license[i] == options[j]) {
-                return badgeLinks[j];
-            } 
-            
-        }
-    }
-}
+    for (let i=0; i < options.length; i++) {
+        if (license == options[i]) {
+            return badgeLinks[i];
+        } ;
+        
+    };
+};
