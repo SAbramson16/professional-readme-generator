@@ -1,7 +1,7 @@
-# title [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+# Project Title [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-sharon
+Here is a description of my project.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -12,21 +12,21 @@ sharon
 - [Questions](#questions)
 
 ## Installation
-sharon
+These are the installation instructions.
 
 ## Usage
-sharon
+This is the usage information.
 
 ## License
-Apache License 2.0
+MIT License
 
 ## Contributing
-sharon
+Here are contribution guidelines.
 
 ## Tests 
-sharon
+These are the testing instructions.
 
 ## Questions
 If you have any further questions, feel free to contact me:  
-Github: github.com/sharon
-Email: sharon
+Github: github.com/SAbramson16
+Email: sharabramson@gmail.com
